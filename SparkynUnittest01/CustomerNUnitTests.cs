@@ -19,8 +19,10 @@ namespace Sparky
 
             Assert.That(fullName, Is.EqualTo("Ben Spark Test"));
             Assert.AreEqual(fullName, "Ben Spark Test");
-            Assert.That(fullName, Does.Contain(","));
+            Assert.That(fullName, Does.Contain(",").IgnoreCase);
             Assert.That(fullName, Does.StartWith("B"));
+
+            
 
         }
     }
