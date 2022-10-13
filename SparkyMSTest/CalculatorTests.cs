@@ -22,9 +22,10 @@ namespace SparkyMSTest
 
             //Assert
             Assert.AreEqual(3 , result);
-            
 
         }
+
+
 
     }
 }

@@ -65,6 +65,25 @@ namespace Sparky
             Assert.AreEqual(15.9, result , 1);
         }
 
+        [Test]
+        public  void OddRanger_InputMinAndMax_ReturnsValidOddNumberRange()
+        {
+            Calculator calculator = new();
+            List<int> expectedResult = new() {5 ,7 ,9} ;
+
+            //act
+
+            List<int> ResultOddRange = calculator.GetOddRange(5, 10);
+            Assert.That(ResultOddRange, Is.EquivalentTo(expectedResult));
+            //Assert.That(ResultOddRange , Does.Contain(3));
+            //Assert.That(ResultOddRange.Count ,Is.EqualTo(6));
+            //Assert.That(ResultOddRange.Count ,Has.No.Member(4));
+            //Assert.That(ResultOddRange.Count ,Has.No.Member(4));
+
+
+
+        }
+
 
 
     }
