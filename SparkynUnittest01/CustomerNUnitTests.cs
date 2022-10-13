@@ -49,5 +49,47 @@ namespace Sparky
             Assert.That(result , Is.InRange(10 , 25));
         }
 
+        [Test]
+        public void GreetMessage_GreetedWithoutLastName_ReturnNull()
+        {
+            customer.GreetAndCombinedName("ben", "" , "");
+            Assert.IsNotNull(customer.GreetMessage);
+            Assert.IsFalse(string.IsNullOrEmpty(customer.GreetMessage));
+        }
+
+        [Test]
+
+        public void GreetChecker_EmptyFirsName_ThrowsException()
+        {
+            // exception with messgae
+            var exceptionDetails = Assert.Throws<ArgumentException>(() => customer.GreetAndCombinedName("", "", "Spark"));
+            Assert.AreEqual("Empty First name", exceptionDetails.Message);
+            Assert.That(() =>  customer.GreetAndCombinedName("", "" , ""), 
+                Throws.ArgumentException.With.Message.EqualTo("Empty First name"));
+
+            //excpetoin thrown or not matra check agrne 
+
+            Assert.Throws<ArgumentException>(() => customer.GreetAndCombinedName("", "", "Spark"));
+            
+            Assert.That(() => customer.GreetAndCombinedName("", "", ""),
+                Throws.ArgumentException);
+        }
+
+        [Test]
+        public void CustomerType_CreateCustomerWithlessThan100Order_ReturnBasicCustomer()
+        {
+            customer.OrderTotal = 10;
+            var result = customer.GetCustomerDetail();
+            Assert.That(result, Is.TypeOf<Customer.BasicCustomer>());
+        }
+
+        [Test]
+        public void CustomerType_CreateCustomerWithMoreThan100Order_ReturnBasicCustomer()
+        {
+            customer.OrderTotal = 110;
+            var result = customer.GetCustomerDetail();
+            Assert.That(result, Is.TypeOf<Customer.PlatinumCustomer>());
+        }
+
     }
 }

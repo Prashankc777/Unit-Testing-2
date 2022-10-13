@@ -79,10 +79,12 @@ namespace Sparky
             //Assert.That(ResultOddRange.Count ,Is.EqualTo(6));
             //Assert.That(ResultOddRange.Count ,Has.No.Member(4));
             //Assert.That(ResultOddRange.Count ,Has.No.Member(4));
-
-
-
         }
+
+
+       
+
+
 
 
 
