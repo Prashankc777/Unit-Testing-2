@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Bongo.Core.Services;
 using Bongo.DataAccess.Repository.IRepository;
 using Bongo.Models.Model;
+using Bongo.Models.Model.VM;
 using Moq;
 using NUnit.Framework;
 
@@ -64,6 +65,22 @@ namespace Bongo.Core
         {
             Assert.Throws<ArgumentNullException>(() => _bookingService.BookStudyRoom(null));
 
+        }
+
+        //[Test]
+        //public void StudyRoomBooking_SaveBookingWithAvailableRoom_ReturnResultWithAllValues()
+        //{
+        //    _studyRoomBookingRepoMock.Setup(x => x.Book(It.IsAny<StudyRoomBooking>())).Callback();
+        //}
+
+
+        [Test]
+        public void StudyRoomBookingResultCheck_InputRequest_ValuesMatchInResult()
+        {
+            StudyRoomBookingResult result = _bookingService.BookStudyRoom(_request);
+
+            Assert.NotNull(result);
+            Assert.AreEqual(_request , result);
         }
 
 
